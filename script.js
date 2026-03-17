@@ -39,6 +39,12 @@
   $form.addEventListener("submit", (e) => {
     e.preventDefault();
     $loader.classList.remove("none");
+    const $btn = d.getElementById("submitBtn");
+    if ($btn) {
+      $btn.textContent = "Enviando...";
+      $btn.style.background = "var(--goldD)";
+      $btn.style.color = "var(--ink)";
+    }
 
     fetch("https://formsubmit.co/ajax/ed58b654d478ea563c349a2f51c7f3d3", {
       method: "POST",
@@ -47,6 +53,11 @@
       .then((res) => (res.ok ? res.json() : Promise.reject(res)))
       .then(() => {
         $response.textContent = "Gracias por contactarte con ENFOCATE. En breve nos comunicaremos con vos.";
+        if ($btn) {
+          $btn.textContent = "✓ Mensaje enviado";
+          $btn.style.background = "var(--green)";
+          $btn.style.color = "var(--ink)";
+        }
         location.hash = "#gracias";
         $form.reset();
       })

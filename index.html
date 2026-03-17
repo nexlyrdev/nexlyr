@@ -518,18 +518,10 @@ reveals.forEach(r => observer.observe(r));
 // ——— FORM ———
 function handleSubmit() {
   const btn = document.getElementById('submitBtn');
-  btn.textContent = 'Enviando...';
-  btn.style.background = 'var(--goldD)';
-  setTimeout(() => {
-    btn.textContent = '✓ Mensaje enviado';
-    btn.style.background = 'var(--green)';
-    btn.style.color = 'var(--ink)';
-    setTimeout(() => {
-      btn.textContent = 'Enviar mensaje →';
-      btn.style.background = 'var(--gold)';
-      btn.style.color = 'var(--ink)';
-    }, 3000);
-  }, 1200);
+  if (!btn) return;
+  btn.textContent = '✓ Mensaje enviado';
+  btn.style.background = 'var(--green)';
+  btn.style.color = 'var(--ink)';
 }
 
 // ——— SMOOTH ANCHOR ———
@@ -546,8 +538,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 <script src="script.js"></script>
 </body>
 </html>
-
-
 
 
 
