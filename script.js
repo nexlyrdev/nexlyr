@@ -40,7 +40,7 @@
     e.preventDefault();
     $loader.classList.remove("none");
 
-    fetch("https://formsubmit.co/ajax/nexlyr.dev@gmail.com", {
+    fetch("https://formsubmit.co/ajax/ed58b654d478ea563c349a2f51c7f3d3", {
       method: "POST",
       body: new FormData($form)
     })

@@ -516,8 +516,7 @@ const observer = new IntersectionObserver((entries) => {
 reveals.forEach(r => observer.observe(r));
 
 // ——— FORM ———
-function handleSubmit(e) {
-  e.preventDefault();
+function handleSubmit() {
   const btn = document.getElementById('submitBtn');
   btn.textContent = 'Enviando...';
   btn.style.background = 'var(--goldD)';
@@ -525,7 +524,6 @@ function handleSubmit(e) {
     btn.textContent = '✓ Mensaje enviado';
     btn.style.background = 'var(--green)';
     btn.style.color = 'var(--ink)';
-    e.target.reset();
     setTimeout(() => {
       btn.textContent = 'Enviar mensaje →';
       btn.style.background = 'var(--gold)';
