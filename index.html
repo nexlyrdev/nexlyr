@@ -374,20 +374,20 @@
       </div>
 
       <div class="reveal reveal-delay-1">
-        <form class="contact-form" onsubmit="handleSubmit(event)">
+        <form class="contact-form">
           <div class="form-row">
             <div class="field">
               <label>Nombre</label>
-              <input type="text" placeholder="Tu nombre" required>
+              <input type="text" name="nombre" placeholder="Tu nombre" required>
             </div>
             <div class="field">
               <label>Email</label>
-              <input type="email" placeholder="tu@empresa.com" required>
+              <input type="email" name="email" placeholder="tu@empresa.com" required>
             </div>
           </div>
           <div class="field">
             <label>¿Qué necesitás?</label>
-            <select>
+            <select name="servicio" required>
               <option value="">Seleccioná un servicio</option>
               <option>Landing page / Sitio web</option>
               <option>Web app o e-commerce</option>
@@ -400,12 +400,16 @@
           </div>
           <div class="field">
             <label>Contanos el proyecto</label>
-            <textarea placeholder="Describí brevemente qué querés construir o automatizar. Cuanto más detalle, mejor propuesta podemos armar."></textarea>
+            <textarea name="mensaje" placeholder="Describí brevemente qué querés construir o automatizar. Cuanto más detalle, mejor propuesta podemos armar." required></textarea>
           </div>
           <button type="submit" class="form-submit" id="submitBtn">
             Enviar mensaje →
           </button>
         </form>
+        <div class="contact-form-loader none"></div>
+        <div id="gracias" class="contact-form-response">
+          <h3></h3>
+        </div>
       </div>
     </div>
   </div>
@@ -541,6 +545,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 </script>
+<script src="script.js"></script>
 </body>
 </html>
 
