@@ -52,7 +52,7 @@
     })
       .then((res) => (res.ok ? res.json() : Promise.reject(res)))
       .then(() => {
-        $response.textContent = "Gracias por contactarte con ENFOCATE. En breve nos comunicaremos con vos.";
+        $response.textContent = "Gracias por contactarte con Nexlyr. En breve nos comunicaremos con vos.";
         if ($btn) {
           $btn.textContent = "✓ Mensaje enviado";
           $btn.style.background = "var(--green)";
