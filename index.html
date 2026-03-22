@@ -16,16 +16,16 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">NEXLYR<span class="dot">.</span></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="primaryNav">
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#proceso">Proceso</a></li>
     <li><a href="#precios">Precios</a></li>
     <li><a href="#nosotros">Nosotros</a></li>
   </ul>
   <a href="#contacto" class="nav-cta">Contacto</a>
-  <div class="nav-mobile-toggle" id="mobileToggle">
+  <button type="button" class="nav-mobile-toggle" id="mobileToggle" aria-label="Abrir menu de navegacion" aria-controls="primaryNav" aria-expanded="false">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -538,6 +538,5 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 <script src="script.js"></script>
 </body>
 </html>
-
 
 

@@ -1,29 +1,33 @@
 ﻿((d) => {
-  const $btn = d.querySelector(".menu-btn");
-  const $menu = d.querySelector(".menu");
+  const $nav = d.getElementById("navbar");
+  const $btn = d.getElementById("mobileToggle");
+  const $menu = d.querySelector(".nav-links");
 
-  if (!$btn || !$menu) return;
+  if (!$nav || !$btn || !$menu) return;
 
   const closeMenu = () => {
-    $menu.classList.remove("is-active");
-    $btn.classList.remove("is-open");
+    $nav.classList.remove("menu-open");
     $btn.setAttribute("aria-expanded", "false");
   };
 
   $btn.addEventListener("click", () => {
-    const isOpen = $menu.classList.toggle("is-active");
-    $btn.classList.toggle("is-open", isOpen);
+    const isOpen = $nav.classList.toggle("menu-open");
     $btn.setAttribute("aria-expanded", String(isOpen));
   });
 
   d.addEventListener("click", (e) => {
-    if (e.target.matches(".menu a")) {
+    if (e.target.closest(".nav-links a")) {
+      closeMenu();
+      return;
+    }
+
+    if (!$nav.contains(e.target)) {
       closeMenu();
     }
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 980) {
+    if (window.innerWidth > 900) {
       closeMenu();
     }
   });
@@ -40,6 +44,7 @@
     e.preventDefault();
     $loader.classList.remove("none");
     const $btn = d.getElementById("submitBtn");
+    const startTime = Date.now();
     if ($btn) {
       $btn.textContent = "Enviando...";
       $btn.style.background = "var(--goldD)";
@@ -54,9 +59,14 @@
       .then(() => {
         $response.textContent = "Gracias por contactarte con Nexlyr. En breve nos comunicaremos con vos.";
         if ($btn) {
-          $btn.textContent = "✓ Mensaje enviado";
-          $btn.style.background = "var(--green)";
-          $btn.style.color = "var(--ink)";
+          const minDisplay = 600;
+          const elapsed = Date.now() - startTime;
+          const wait = Math.max(0, minDisplay - elapsed);
+          setTimeout(() => {
+            $btn.textContent = "✓ Mensaje enviado";
+            $btn.style.background = "var(--green)";
+            $btn.style.color = "var(--ink)";
+          }, wait);
         }
         location.hash = "#gracias";
         $form.reset();
